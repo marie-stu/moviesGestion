@@ -19,6 +19,7 @@
   <ItemGroup>
     <Folder Include="Features\Episodes\" />
     <Folder Include="Features\Genres\" />
+    <Folder Include="Features\Movies\GetAll\" />
     <Folder Include="Features\ViewMedias\" />
   </ItemGroup>
 

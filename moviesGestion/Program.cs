@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Application.auMapper;
 
 // using moviesGestion.auMapper; // Cet using pourrait changer selon l'emplacement de MappingProfile
-using moviesGestion.Hubs;
 using moviesGestion.repositories;
 using System.Reflection;
+using Api.Hub;
 
 // --- 1. Définir un nom pour la politique CORS --- (INCHANGÉ)
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -42,7 +42,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Creat
 builder.Services.AddScoped(typeof(ITRepository<>), typeof(Trepository<>));
 
 // (INCHANGÉ) - Injection d'AutoMapper
-builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 // (INCHANGÉ) - Services restants
 builder.Services.AddSignalR();

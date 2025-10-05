@@ -11,11 +11,16 @@ namespace Application.Features.Movie.CreateMovie
         private readonly IMapper _mapper;
 
         // ... constructeur
+        public CreateMovieCommandHandler(ITRepository<Media> repository, IMapper mapper)
+        {
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        }
 
         public async Task<int> Handle(CreateMovieCommand request, CancellationToken cancellationToken)
         {
             // 1. Mapper les données venant de l'utilisateur
-            var mediaEntity = _mapper.Map<Media>(request); // Ou request.Dto selon votre design
+            var mediaEntity = _mapper.Map<Media>(request.Dto); // Ou request.Dto selon votre design
 
             // 2. Appliquer les règles métier / valeurs par défaut
             mediaEntity.MediaType = "movie"; 

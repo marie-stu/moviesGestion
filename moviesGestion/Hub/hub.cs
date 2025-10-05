@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace moviesGestion.Hubs;
+namespace Api.Hub;
 
 /// <summary>
 /// Ce Hub gère l'envoi de notifications en temps réel aux clients.
